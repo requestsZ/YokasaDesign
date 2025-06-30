@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yokasa Design | Портфолио</title>
+    <link href="https://fonts.cdnfonts.com/css/chinese-rocks" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Основные стили */
+        @import url('https://fonts.cdnfonts.com/css/chinese-rocks');
+        
+        body {
+            background: linear-gradient(135deg, #0a001a, #1a0033);
+            font-family: 'Chinese Rocks Rg', sans-serif;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Шапка */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid #8a2be2;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideDown 0.8s ease-out 0.3s forwards;
+        }
+        
+        @keyframes slideDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8a2be2, #da70d6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.7);
+            overflow: hidden;
+            border: 3px solid #e0b0ff;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleIn 0.6s ease-out 0.6s forwards;
+        }
+        
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header h1 {
+            color: #da70d6;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(218, 112, 214, 0.5);
+            font-family: 'Chinese Rocks Rg', sans-serif;
+        }
+        
+        .header p {
+            color: #9370db;
+            margin: 5px 0 0;
+            font-family: 'Chinese Rocks Rg', sans-serif;
+        }
+        
+        /* Меню портфолио */
+        .portfolio-menu {
+            background: rgba(44, 0, 99, 0.4);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #5a1a8a;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.8s ease-out 0.9s forwards;
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Стиль для всех пунктов меню */
+        .menu-item {
+            padding: 18px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(123, 44, 191, 0.5);
+            position: relative;
+            font-family: 'Chinese Rocks Rg', sans-serif;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Задержки для пунктов меню */
+        .menu-item:nth-child(1) { animation-delay: 1.2s; }
+        .menu-item:nth-child(2) { animation-delay: 1.4s; }
+        .menu-item:nth-child(3) { animation-delay: 1.6s; }
+        .menu-item:nth-child(4) { animation-delay: 1.8s; }
+        .menu-item:nth-child(5) { animation-delay: 2.0s; }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-item:hover {
+            background: rgba(123, 44, 191, 0.3);
+        }
+        
+        .menu-item h2 {
+            margin: 0;
+            color: #e0b0ff;
+            font-size: 1.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Chinese Rocks Rg', sans-serif;
+        }
+        
+        .menu-item h2::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item.active h2::after {
+            transform: rotate(45deg);
+        }
+        
+        /* Подменю */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: rgba(59, 0, 128, 0.2);
+        }
+        
+        .menu-item.active .submenu {
+            max-height: 500px;
+        }
+        
+        /* Стиль для простого текста */
+        .plain-text-item {
+            padding: 15px 25px 15px 40px;
+            border-top: 1px solid rgba(147, 112, 219, 0.2);
+            color: #c9a0ff;
+            font-size: 1.1rem;
+            margin: 0;
+            cursor: default;
+            font-family: 'Chinese Rocks Rg', sans-serif;
+        }
+        
+        /* Стиль для ссылок */
+        .contact-link {
+            color: #e0b0ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-family: 'Chinese Rocks Rg', sans-serif;
+        }
+        
+        .contact-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        /* Анимации подменю */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .menu-item.active .submenu .plain-text-item,
+        .menu-item.active .submenu .submenu-item {
+            animation: fadeIn 0.4s ease forwards;
+        }
+        
+        .menu-item.active .submenu .submenu-item:nth-child(1) { animation-delay: 0.1s; }
+        .menu-item.active .submenu .submenu-item:nth-child(2) { animation-delay: 0.2s; }
+        .menu-item.active .submenu .submenu-item:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Условия работы */
+        .terms-item {
+            padding: 15px 25px 15px 40px;
+            border-top: 1px solid rgba(147, 112, 219, 0.2);
+            color: #c9a0ff;
+            font-size: 1.1rem;
+            margin: 0;
+            font-family: 'Chinese Rocks Rg', sans-serif;
+        }
+        
+        .terms-item strong {
+            color: #e0b0ff;
+        }
+
+        /* Стили для кнопок портфолио */
+        .portfolio-button {
+            display: block;
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: rgba(123, 44, 191, 0.3);
+            color: #e0b0ff;
+            border: 1px solid #8a2be2;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-family: 'Chinese Rocks Rg', sans-serif;
+            opacity: 0;
+            transform: translateX(-15px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        
+        /* Задержки для кнопок */
+        .portfolio-button:nth-child(1) { animation-delay: 0.1s; }
+        .portfolio-button:nth-child(2) { animation-delay: 0.2s; }
+        .portfolio-button:nth-child(3) { animation-delay: 0.3s; }
+        .portfolio-button:nth-child(4) { animation-delay: 0.4s; }
+        .portfolio-button:nth-child(5) { animation-delay: 0.5s; }
+        .portfolio-button:nth-child(6) { animation-delay: 0.6s; }
+        
+        .portfolio-button:hover {
+            background: rgba(218, 112, 214, 0.3);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Стили для прокручиваемых условий */
+        .scrollable-terms {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 15px;
+            font-family: 'Chinese Rocks Rg', sans-serif;
+        }
+        
+        .scrollable-terms::-webkit-scrollbar-track {
+            background: rgba(74, 20, 140, 0.2);
+        }
+        
+        .scrollable-terms::-webkit-scrollbar-thumb {
+            background: linear-gradient(#8a2be2, #da70d6);
+        }
+    </style>
+<script>
+    // Сохраняем текущий URL перед переходом
+    sessionStorage.setItem('fromPage', window.location.href);
+    
+    // Анимация при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.style.opacity = '0';
+        setTimeout(function() {
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            document.body.style.opacity = '1';
+        }, 50);
+    });
+    
+    // Обработчик для всех ссылок
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.href && this.href !== '#' && !this.target) {
+                e.preventDefault();
+                document.body.style.transition = 'opacity 0.3s ease-in-out';
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 300);
+            }
+        });
+    });
+</script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="1.jpg" class="logo-img">
+            </div>
+            <h1>Yokasa Design</h1>
+            <p></p>
+        </header>
+        
+        <div class="portfolio-menu">
+            <div class="menu-item" onclick="toggleMenu(this)">
+                <h2>Портфолио</h2>
+                <div class="submenu">
+                    <button class="portfolio-button" onclick="alert('Примеры аватарок')">Аватарки</button>
+                    <button class="portfolio-button" onclick="alert('Примеры баннеров')">Баннеры</button>
+                    <button class="portfolio-button" onclick="alert('Примеры превью')">Превью</button>
+                    <button class="portfolio-button" onclick="alert('Примеры инфо-графики')">Инфо-графика</button>
+                    <button class="portfolio-button" onclick="alert('Примеры рекламы казино/каналов')">Реклама казино/каналов</button>
+                    <button class="portfolio-button" onclick="alert('Примеры анимированных фото')">Анимированные фото</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="window.location.href='price-list.html'">
+                <h2>Прайс лист</h2>
+                <div class="submenu">
+                    <button class="portfolio-button">Перейти к полному прайс-листу</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="toggleMenu(this)">
+                <h2>Условия оплаты и работы</h2>
+                <div class="submenu">
+                    <div class="scrollable-terms">
+                        <p class="terms-item"><strong>- Предоплата 50% до начала работы, оставшиеся 50% после утверждения готового продукта.</strong></p>
+                        <p class="terms-item">- Оплата через Банковскую карту (Т Банк / СберБанк) или же через крипто-бота Telegram</p>
+                        
+                        <p class="terms-item"><strong>Условия выполнения работ:</strong></p>
+                        <p class="terms-item">- Срок выполнения работ зависит от сложности проекта и обговаривается индивидуально. Но обычно на осуществление заха уходит от 1-4 дня.</p>
+                        <p class="terms-item">- После заключения договора оказания услуг, клиент имеет возможность предоставить материалы, исходники и тд</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item" onclick="toggleMenu(this)">
+                <h2>Дополнительная информация</h2>
+                <div class="submenu">
+                    <p class="plain-text-item">- Дополнительные услуги могут быть оказаны за дополнительную плату, обсуждаемую с клиентом.</p>
+                    <p class="plain-text-item">- Все особенности проекта обговариваются заранее для удобства и прозрачности в работе.</p>
+                    <p class="plain-text-item">Мы работаем командой и каждый профессионал в своей сфере. Укрась свой проект красиво!</p>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="toggleMenu(this)">
+                <h2>Контакты</h2>
+                <div class="submenu">
+                    <div class="submenu-item">
+                        <a href="https://t.me/chanmaid" class="contact-link">
+                            <i class="fab fa-telegram contact-icon"></i>
+                            <h3>yokasa:@chanmaid</h3>
+                        </a>
+                    </div>
+                    <div class="submenu-item">
+                        <a href="https://t.me/chanmate" class="contact-link">
+                            <i class="fab fa-telegram contact-icon"></i>
+                            <h3>musa:@chanmate</h3>
+                        </a>
+                    </div>
+                    <div class="submenu-item">
+                        <a href="https://t.me/BCE_request" class="contact-link">
+                            <i class="fab fa-telegram contact-icon"></i>
+                            <h3>request:@BCE_request</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu(element) {
+            document.querySelectorAll('.menu-item').forEach(item => {
+                if (item !== element && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            });
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yokasa Design | Прайс-лист</title>
+    <link href="https://fonts.cdnfonts.com/css/chinese-rocks" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Основные стили */
+        @import url('https://fonts.cdnfonts.com/css/chinese-rocks');
+        
+        body {
+            background: linear-gradient(135deg, #0a001a, #1a0033);
+            font-family: 'Chinese Rocks Rg', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e0b0ff;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid #8a2be2;
+        }
+        
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8a2be2, #da70d6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.7);
+            overflow: hidden;
+            border: 3px solid #e0b0ff;
+        }
+        
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header h1 {
+            color: #da70d6;
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(218, 112, 214, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .price-section {
+            background: rgba(44, 0, 99, 0.4);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #5a1a8a;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            color: #da70d6;
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(218, 112, 214, 0.5);
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(123, 44, 191, 0.5);
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-name {
+            font-size: 1.3rem;
+            color: #e0b0ff;
+            flex: 2;
+        }
+        
+        .service-desc {
+            font-size: 1.1rem;
+            color: #c9a0ff;
+            flex: 3;
+            padding: 0 15px;
+        }
+        
+        .service-price {
+            font-size: 1.4rem;
+            color: #da70d6;
+            flex: 1;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #8a2be2;
+            color: #9370db;
+            font-size: 1rem;
+        }
+        
+        .highlight {
+            color: #da70d6;
+        }
+        
+        .contact-link {
+            color: #e0b0ff;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+        .contact-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        .contact-icon {
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .price-item {
+                flex-direction: column;
+            }
+            
+            .service-desc {
+                padding: 5px 0;
+            }
+            
+            .service-price {
+                text-align: left;
+                padding-top: 5px;
+            }
+        }
+    </style>
+<script>
+    // Анимация при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+        const fromPage = sessionStorage.getItem('fromPage');
+        if (fromPage) {
+            document.body.style.opacity = '0';
+            setTimeout(function() {
+                document.body.style.transition = 'opacity 0.5s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 50);
+            sessionStorage.removeItem('fromPage');
+        }
+    });
+    
+    // Обработчик для всех ссылок
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.href && this.href !== '#' && !this.target) {
+                e.preventDefault();
+                document.body.style.transition = 'opacity 0.3s ease-in-out';
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 300);
+            }
+        });
+    });
+</script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="1.jpg" class="logo-img">
+            </div>
+            <h1>Yokasa Design</h1>
+        </header>
+        
+        <div class="price-section">
+            <h2 class="section-title">Инфо-Графика</h2>
+            
+            <div class="price-item">
+                <div class="service-name">Карточка для WB/Ozon (за одну)</div>
+                <div class="service-desc"></div>
+                <div class="service-price">3,4 $</div>
+            </div>
+        </div>
+        
+        <div class="price-section">
+            <h2 class="section-title">Баннеры, превью, аватарки</h2>
+            
+            <div class="price-item">
+                <div class="service-name">Статичная аватарка</div>
+                <div class="service-desc"></div>
+                <div class="service-price">5,4 $</div>
+            </div>
+            
+            <div class="price-item">
+                <div class="service-name">Статичный баннер</div>
+                <div class="service-desc"></div>
+                <div class="service-price">4,4 $</div>
+            </div>
+            
+            <div class="price-item">
+                <div class="service-name">Статичное превью</div>
+                <div class="service-desc"></div>
+                <div class="service-price">10,4 $</div>
+            </div>
+        </div>
+        
+        <div class="price-section">
+            <h2 class="section-title">Прочее</h2>
+            
+            <div class="price-item">
+                <div class="service-name">Ретушь</div>
+                <div class="service-desc"></div>
+                <div class="service-price">7 $</div>
+            </div>
+            
+            <div class="price-item">
+                <div class="service-name">3D текст по вашему описанию</div>
+                <div class="service-desc"></div>
+                <div class="service-price">1,5 $</div>
+            </div>
+            
+            <div class="price-item">
+                <div class="service-name">Цветокоррекция для видео/фото</div>
+                <div class="service-desc"></div>
+                <div class="service-price">3 $</div>
+            </div>
+        </div>
+        
+        <div class="price-section">
+            <h2 class="section-title">Моушн дизайн</h2>
+            
+            <div class="price-item">
+                <div class="service-name">Реклама казино (30 секунд)</div>
+                <div class="service-desc"></div>
+                <div class="service-price">20,4 $</div>
+            </div>
+            
+            <div class="price-item">
+                <div class="service-name">Реклама вашего канала (1 минута)</div>
+                <div class="service-desc"></div>
+                <div class="service-price">10,4 $</div>
+            </div>
+        </div>
+        
+        <div class="price-section">
+            <h2 class="section-title">Анимация</h2>
+            
+            <div class="price-item">
+                <div class="service-name">Анимирование фото (аниме)</div>
+                <div class="service-desc"></div>
+                <div class="service-price">10 $</div>
+            </div>
+            
+            <div class="price-item">
+                <div class="service-name">Анимирование фото</div>
+                <div class="service-desc"></div>
+                <div class="service-price">18 $</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Актуально на: <span class="highlight">30.06.2024</span></p>
+            <p>
+                <a href="https://t.me/chanmaid" class="contact-link">
+                    <i class="fab fa-telegram contact-icon"></i>yokasa
+                </a>
+                <a href="https://t.me/chanmate" class="contact-link">
+                    <i class="fab fa-telegram contact-icon"></i>musa
+                </a>
+                <a href="https://t.me/BCE_request" class="contact-link">
+                    <i class="fab fa-telegram contact-icon"></i>request
+                </a>
+            </p>
+            <p>by yokasa design team</p>
+        </div>
+    </div>
+</body>
+</html>

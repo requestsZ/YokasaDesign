@@ -1,0 +1,24 @@
+/* Стили для прокручиваемых условий */
+.scrollable-terms {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.scrollable-terms::-webkit-scrollbar-track {
+    background: rgba(74, 20, 140, 0.2);
+}
+
+.scrollable-terms::-webkit-scrollbar-thumb {
+    background: linear-gradient(#8a2be2, #da70d6);
+}
+/* Анимации переходов между страницами */
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Для плавного скролла */
+html {
+    scroll-behavior: smooth;
+}
